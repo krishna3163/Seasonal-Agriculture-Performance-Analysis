@@ -27,3 +27,5 @@ FINAL_VERIFICATION_REPORT.md
 # Operating System files
 .DS_Store
 Thumbs.db
+
+.local/
