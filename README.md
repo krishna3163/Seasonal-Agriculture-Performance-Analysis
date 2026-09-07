@@ -4,6 +4,8 @@
 
 **Student Name:** Krishna Kumar  
 **College Name:** Ambalika Institute of Management and Technology  
+**AICTE STU ID:** STU6a252b77248381780820855  
+**Course Certificate:** Data Visualization (ID: VFLMS26_163451)  
 **GitHub Repository:** [https://github.com/krishna3163/Seasonal-Agriculture-Performance-Analysis](https://github.com/krishna3163/Seasonal-Agriculture-Performance-Analysis)
 
 ---
@@ -39,7 +41,8 @@ VOIS/
 │   ├── 10_irrigation_vs_yield.png
 │   ├── 11_irrigation_vs_water_efficiency.png
 │   └── 12_correlation_heatmap.png
-├── VOIS_Project_PPT.pptx                          # Completed presentation
+├── VOIS_Project_PPT.pptx                          # Completed presentation (14 slides)
+├── Certificate.pdf                                # Official course completion certificate
 ├── README.md                                      # This file
 ├── MANUAL_INSERTION_CHECKLIST.md                   # Items to fill manually
 └── FINAL_VERIFICATION_REPORT.md                   # Verification results
