@@ -1,0 +1,29 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# Virtual environments & local files
+.env
+.venv/
+env/
+venv/
+*.tmp
+*.bak
+
+# Personal and administrative files (kept on local workstation only)
+Certificate.pdf
+charts/certificate.png
+*Submission Form*
+*Template.pptx
+*Performance Analysis.pdf
+MANUAL_INSERTION_CHECKLIST.md
+FINAL_VERIFICATION_REPORT.md
+
+# Operating System files
+.DS_Store
+Thumbs.db

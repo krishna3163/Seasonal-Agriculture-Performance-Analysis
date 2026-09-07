@@ -1,0 +1,54 @@
+name: Automated Agriculture Analysis & Chart Generation
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'seasonal_agriculture_performance_dataset.csv'
+      - 'generate_charts.py'
+      - 'requirements.txt'
+      - '.github/workflows/**'
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-generate:
+    name: Run Pipeline & Generate Visualizations
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install Python Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Validate Dataset Schema & Integrity
+        run: |
+          python -c "import pandas as pd; df = pd.read_csv('seasonal_agriculture_performance_dataset.csv'); print(f'Dataset Shape: {df.shape}'); assert df.shape == (4000, 28); print('Dataset validation passed!')"
+
+      - name: Run Automated Chart Generation Pipeline
+        run: python generate_charts.py
+
+      - name: Verify All 12 Charts Generated
+        run: |
+          python -c "import os, sys; charts = [f'{i:02d}_' for i in range(1, 13)]; files = os.listdir('charts'); missing = [c for c in charts if not any(f.startswith(c) for f in files)]; assert not missing, f'Missing: {missing}'; print('All 12 charts successfully verified!')"
+
+      - name: Upload Generated Visualizations Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: seasonal-agriculture-charts
+          path: charts/*.png
+          retention-days: 30
